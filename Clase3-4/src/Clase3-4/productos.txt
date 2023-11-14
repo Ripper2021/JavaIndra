@@ -1,0 +1,25 @@
+Nombre: Agua
+Precio: $1.0
+Dias para caducar: -8563
+Precio con descuento: $0.75
+
+Nombre: Queso
+Precio: $5.0
+Dias para caducar: -35
+Precio con descuento: $3.75
+
+Nombre: Refresco
+Precio: $2.0
+Dias para caducar: -527
+Precio con descuento: $1.5
+
+Nombre: Mortadela
+Precio: $10.0
+Dias para caducar: -400
+Precio con descuento: $7.5
+
+Nombre: Manzana
+Precio: $1.0
+Dias para caducar: -317
+Precio con descuento: $0.75
+

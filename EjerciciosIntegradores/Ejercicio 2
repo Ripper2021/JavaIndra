@@ -1,0 +1,29 @@
+EJERCICIO INTEGRADOR 2:
+Nos contrataron del servicio metereologico para desarrollar un programa que informe en base a la siguiente API 
+https://open-meteo.com/en/docs
+Información pertinente a las siguientes ciudades:
+- Barcelona
+- Madrid
+- Berlin
+- Buenos Aires
+
+Para cada ciudad se debe informar lo siguiente: 
+- Temperature_2m
+- latitude
+- longitude
+- timezone
+- elevation
+- temperature_2m (la primer posición de la lista) 
+
+Se debe desarrollar un programa que tenga una interfaz de usuario haciendo uso de JFrame, JLabel, entre otros. Y que por cada ciudad que se elija, mostrar una imagen de la misma y la información antes obtenida. 
+
+El esquema de la ventana del programa debe ser:
+
+Boton Barcelona -> click -> mostrar imagen de la ciudad y la información obtenida de la API. 
+Boton Madrid - click -> mostrar imagen de la ciudad y la información obtenida de la API
+boton Berlin -> click -> mostrar imagen de la ciudad y la información obtenida de la API.
+información Buenos Aires -> click -> mostrar imagen de la ciudad y la información obtenida de la API.
+
+
+ENTREGABLES:
+- Codigo del proyecto. 

@@ -1,0 +1,61 @@
+AOP = Aspect Oriented Programming.
+AOP = Programación orientada a Aspectos.
+Es un paradigma que se utiliza para MODULIZAR los aspectos
+TRANSVERSALES de un programa. Como por ejemplo, registros de auditoira,
+seguridad, transaccionalidades y gestión de excepciones. En lugar de mezclar
+todos estos aspectos en la clase principal, los separamos en modulos independientes que se pueden
+reutilizar y mantener facilmente. 
+
+En Java, se puede utilizar el marco de trabajo AspectJ (dependencia)
+para implementar la programación orientada a aspectos. AspectJ es una extensión del lenguaje de Java
+que permite definir aspectos como modulos independientes y luego aplicarlos a objetos. 
+
+Aspectos: Es un modulo que encapsula una funcionalidad TRANSVERSAL
+que afecta a multiples puntos de la aplicación, como por ejemplo, el registro,
+la validación, el control de transacciones, entre otros. 
+Un aspecto puede definir un punto de corte donde se aplicara la funcionalidad encapsulada. 
+Ademas, los aspectos facilitan la implementación de requisitos no funcionales para no mezclar
+estas funcionalidades con la logica del negocio.
+
+Anotaciones (metodos)
+En AOP son etiquetas que se colocan sobre elementos de codigo, como 
+clases, metodos, atributos, parametros para propocionar información
+adicional y metadata para el compilador. 
+En Java, las anotaciones se definen con la sintaxis @nombreAnotacion(valorAtributos = valor)
+
+Algunas de las anotaciones mas comunmenmte utilizadas en AOP son:
+@Aspect indica que es un aspecto.
+@Pointcut que indica el punto de corte donde se va a aplicar la funcionalidad
+Tipos de consejo
+@Before: Se va a implementar ANTES de que se ejecute algo que yo defina
+@After: Se va a implementar DESPUES de que se ejecute algo que yo defina. 
+@Around: Estima cuando se debe ejecutar, si antes o despues en base a criterios de Java.
+
+Servicios:
+Es una clase que provee ciertas funcionalidades a la aplicación. Un servicio
+puede ser cualquier objeto que tenga una responsabilidad especifica dentro de la aplicación
+Ejemplo: Enviar un correo, acceder a una base de datos, procesar datos.
+
+En AOP, un servicio puede ser interceptado por un aspecto utilizando un punto de corte.
+para realizar ciertas acciones dentro del servicio.
+
+Esquema de funcionamiento:
+Servicio -> hace alguna acción -> Aspecto -> Puntos de corte / consejos. 
+
+En general, los servicios son una parte importante  de la arquitectura de la aplicación,
+ya que son los responsables de implementar la logica de negocio y proporcionar
+las funcionalidades requeridas por los clientes de la aplicación. 
+
+BEAN / frijol:
+Es un objeto que es instanciado, configurado y manejado por el contenedor de Spring.
+Los beans son la unidad basica de la aplicación Spring y son responsables de realizar
+una tarea especifica dentro de la aplicación. 
+En terminos mas tecnicos, un bean es una instancia de una clase
+que ha sido definida en el archivo de CONFIGURACION  de Spring
+o mediante anotaciones. Spring administra estos objetos (beans) durante
+el ciclo de vida de la aplicación, lo que significa que Spring los crea,
+configura, almacena, obtiene y los destruye segun sea neecsario. 
+Pueden tener varias propiedades, que se establecen a traves de la inyección
+de dependencias. Estas propiedades pueden ser objetos, otros beans, primitivas, arrays, etc.
+
+Servicio -> Hago algo -> Aspecto -> Punto de corte / consejos -> Beans.

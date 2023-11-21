@@ -1,0 +1,27 @@
+Los hilos (Threads) son una forma de lograr la CONCURRENCIA y
+la ejecución paralela de tareas en un programa. Los hilos
+permiten que un programa realice multiples tareas SIMULTANEAMENTE,
+lo que es util para aprovechar al maximo los sistemas con MULTIPLES
+nucleos de CPU y para mantener una interfaz de usuario receptiva
+en aplicaciones que requieren un procesamiento intensivo. 
+Java proporciona soporte para la programación de hilos a traves de
+su paquete java.lang.Thread 
+Ejecución de hilos:
+Cuando un hilo se inicia con el metodo start(), java invoca
+al metodo run() en ese hilo. Es importante que todas las operaciones
+que un hilo realice esten contenidas dentro del metodo run()
+Multihilos: 
+Podemos crear multiples hilos y ejecutarlos de forma CONCURRENTE. 
+Java se encargara de administrar la asignación de tiempo de CPU a cada hilo.
+Control de hilos: 
+Podemos controlar la ejecución de hilos mediante metodos como
+sleep(), join(), yield() e interrupt(). Estos metodos permiten
+pausar, esperar a que otros hilos finalicen, ceder el tiempo de CPU
+y detener un hilo, respectivamente. 
+Sincronización:
+Java proporciona palabras claves como synchronized para ayudar a
+evitar problemas de concurrencia, como las condiciones de carrera,
+que pueden ocurrir cuando multiples hilos acceden y modifican recursos compartidos.
+Prioridades de hilos:
+Puedes establecer prioridades para los hilos para influir en la asignación de tiempo de CPU.
+Sin embargo, la asignación de prioridades EXACTA no esta garantizada y puede variar segun la plataforma. 

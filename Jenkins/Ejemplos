@@ -315,3 +315,33 @@ pipeline
     }
 }
 
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Prueba de opciones")
+        {
+            steps
+            {
+                script
+                {
+                    def opcion ="opcion1"
+                    switch  (opcion)
+                    {
+                        case 'opcion1':
+                            suma = a+b
+                            println suma
+                            break
+                        case 'opcion2':
+                            resta = a-b
+                            println resta
+                            break
+                        default:
+                        echo 'Opcion no mapeada'
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,280 @@
+//Pipeline -> Stages -> Stage -> Steps -> (opcional) script 
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Nombre de usuario")
+        {
+            steps
+            {
+                script
+                {
+                nombre = "Gustavo"
+                apellido = "Vargas"
+                edad = 31
+                println "Bienvenido: " + nombre + " " + apellido + " tu edad es: " + edad
+                }
+                    
+                }
+        }
+        stage("Informacion de ciudad")
+        {
+            steps
+            {
+                script
+                {
+                ciudad = "Barcelona"
+                clima = "Agradable"
+                println "La ciudad es: " + ciudad + " el clima es" + clima
+                }
+
+                }
+        }
+    }
+}
+
+//Ejemplo 2
+pipeline
+{
+ agent any
+ stages
+ {
+     stage("Operaciones matematicas")
+     {
+         steps
+         {
+             script
+             {
+                 numero1 = 100
+                 numero2 = 200
+                 suma = numero1 + numero2
+                 resta = numero1 - numero2
+                 mult = numero1 * numero1
+                 println "El primer numero es: " + numero1 + " el segundo numero es: " + numero2
+                 println "La suma es: " + suma
+                 println "La resta es: " + resta
+                 println "La multiplicacion es: " + mult
+                 if(numero1 == 0 || numero2 == 0)
+                 {
+                     println "No se puede dividir por 0"
+                 }
+                 else
+                 {
+                 division = numero1 / numero2
+                 println "La division es: " + division
+                 }
+                 }
+         }
+     }
+ }
+    
+    
+}
+
+//Como declarar dias
+import java.text.SimpleDateFormat
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Fechas")
+        {
+            steps
+            {
+                script
+                {
+                    def dia = new Date().getDay()
+                    def dia_actual = new Date()
+                    def formato = new SimpleDateFormat ("dd/MM/yyyy HH:mm:ss")
+                    def fechaFormateada = formato.format(dia_actual)
+                    def map = [1:"Lunes", 2:"Martes", 3:"Miercoles", 4:"Jueves", 5:"Viernes", 6:"Sabado", 7:"Domingo"]
+                    println "El día actual es: " + map[dia]
+                    println "Fecha actual formateada: " + fechaFormateada 
+                }
+            }
+        }
+    }
+}
+
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Ejecutar script")
+        {
+            steps
+            {
+                bat "ipconfig /flushdns"
+            }
+        }
+    }
+}
+
+
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Leer")
+        {
+            steps
+            {
+                script
+                {
+                    def archivo = readFile(file: "C:\\Users\\Gusta\\OneDrive\\Documentos\\Jenkins.txt")
+                    println (archivo)
+                    
+                }
+            }
+        }
+    }
+}
+
+pipeline
+{
+    agent any
+    stages
+    {
+        stage ("Crear fichero")
+        {
+            steps
+            {
+                script
+                {
+                    def fecha = new Date()
+                    def info ="Hola manola! " + fecha
+                    writeFile(file: "salida_file.txt", text:info)
+                }
+            }
+        }
+    }
+}
+
+
+def nombre = "Gustavo"
+def apellido = "Vargas"
+def edad = 31
+def nombre_archivo = "salida.txt"
+def fecha = new Date()
+pipeline
+{
+    agent any
+    stages
+    {
+        stage ("Variables")
+        {
+            steps
+            {
+                script
+                {
+                    println nombre + " " + apellido
+                }
+            }
+            
+        }
+        stage("Nombre")
+        {
+            steps
+            {
+                script
+                {
+                    println nombre
+                }
+            }
+        }
+        stage("Apellido")
+        {
+            steps
+            {
+                script
+                {
+                   apellido ="Perez"
+                   println apellido
+                }
+            }
+        }
+    }
+}
+
+
+import java.text.SimpleDateFormat
+pipeline
+{
+    agent any
+    stages
+    {
+        stage("Sumar")
+        {
+            steps
+            {
+            script{
+            numero1= 100
+            numero2 = 200
+            suma = numero1+numero2
+            println "La suma es: " + suma
+            def cadena_suma = "La suma es: " +suma
+            appendToFile(cadena_suma)
+            }
+                
+            }
+                
+            }
+        stage("Resta")
+        {
+            steps{
+            script
+            {
+            resta = numero1- numero2
+            println "La resta es: " + resta
+            def cadena_resta = "La resta es: " +resta
+            appendToFile(cadena_resta)
+            }
+                
+            }
+                
+            }
+        stage("Multiplicacion")
+        {
+            steps{
+            script{
+            mult = numero1*numero2
+            println"La multiplicacion es: "+mult
+            def cadena_multiplicacion = "La multiplicacion es: " + mult
+            appendToFile(cadena_multiplicacion)
+            }
+            }
+                
+            }
+        
+        stage("Division")
+        {   
+            steps{
+            script{
+            division = numero1/numero2
+            println"La division es: " + division
+             def cadena_division = "La division es: "+ division
+             appendToFile(cadena_division)
+            }
+            }
+        }
+    }
+}
+
+def appendToFile(cadena)
+{
+    def nombre_final = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Resolucion 1\\pruebitas.txt"
+    def archivo = new File(nombre_final)
+    if(archivo.exists())
+    {
+        archivo.append("\n${cadena}")
+    }
+    else
+    {
+        archivo.write(cadena)
+    }
+}
+

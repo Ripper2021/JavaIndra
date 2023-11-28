@@ -278,3 +278,40 @@ def appendToFile(cadena)
     }
 }
 
+
+
+
+pipeline
+{
+    agent any
+    
+    tools
+    {
+        maven 'Maven'
+    }
+    
+    stages
+    {
+        stage ("Clonar Repositorio")
+        {
+            steps
+            {
+                git url: 'https://github.com/Ripper2021/JavaIndra.git'
+            }
+        }
+        
+        stage("Compilar proyecto de Maven")
+        {
+            steps
+            {
+                dir('C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Ejemplo 8\\EjemploMaven')
+                {
+                sh "mvn clean"
+                //sh "mvn install"
+                }
+            }
+        }
+        
+    }
+}
+

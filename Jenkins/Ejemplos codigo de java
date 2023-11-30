@@ -1,0 +1,48 @@
+public class JenkinsfileGenerator {
+
+    public static void main(String[] args) {
+        String jenkinsfileContent = generateJenkinsfile();
+        System.out.println(jenkinsfileContent);
+    }
+
+    public static String generateJenkinsfile() {
+        StringBuilder jenkinsfile = new StringBuilder();
+
+        jenkinsfile.append("pipeline {\n");
+        jenkinsfile.append("    agent any\n");
+        jenkinsfile.append("    stages {\n");
+        jenkinsfile.append("        stage('Ejemplo') {\n");
+        jenkinsfile.append("            steps {\n");
+        jenkinsfile.append("                script {\n");
+        jenkinsfile.append("                    def unidadBase = env.WORKSPACE\n");
+        jenkinsfile.append("                    echo \"La unidad base es: ${unidadBase}\"\n");
+        jenkinsfile.append("                    // Tu lógica adicional aquí\n");
+        jenkinsfile.append("                }\n");
+        jenkinsfile.append("            }\n");
+        jenkinsfile.append("        }\n");
+        jenkinsfile.append("    }\n");
+        jenkinsfile.append("}\n");
+
+        return jenkinsfile.toString();
+    }
+}
+
+Otro ejemplo:
+public class JenkinsfileGenerator {
+
+    public static void main(String[] args) {
+        String jenkinsfileContent = "pipeline {\n" +
+                                    "    agent any\n" +
+                                    "    stages {\n" +
+                                    "        stage('Ejemplo') {\n" +
+                                    "            steps {\n" +
+                                    "                echo \"La unidad base es: \${env.WORKSPACE}\"\n" +
+                                    "                // Tu lógica adicional aquí\n" +
+                                    "            }\n" +
+                                    "        }\n" +
+                                    "    }\n" +
+                                    "}\n";
+
+        System.out.println(jenkinsfileContent);
+    }
+}

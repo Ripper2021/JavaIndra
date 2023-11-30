@@ -42,7 +42,7 @@ El programa debe solicitar por consola los siguientes datos:
 En base a los datos ingresados se debe informar quien tiene una infracción. Hacer 1 para cada posición, como minimo.
 
 SECCION JENKINS:
-Generar un Jenkinsfile desde el programa de Java que informe cuales fueron los empleados y la posición qué ocupan en la empresa para mostrarlos por consola de Jenkins.
+Generar un Jenkinsfile desde el programa de Java que informe cuales fueron los empleados que tienen infracción y la posición qué ocupan en la empresa para mostrarlos por consola de Jenkins.
 Para esto deben subir el proyecto a Github y escanear el Jenkinsfile. 
 
 Entregable:

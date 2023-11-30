@@ -345,3 +345,46 @@ pipeline
         }
     }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                        CLASE DOS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+pipeline
+{
+    agent any
+    tools
+    {
+        maven "Maven"
+    }
+    
+    options
+    {
+        timeout(time: 10, unit: 'MINUTES')
+    }
+    stages
+    {
+        stage("Hacer operaciones de tipo BAT")
+        {
+            steps
+            {
+                echo 'Operacion de tipo bat INFORMO.'
+            }
+        }
+    }
+post
+{
+    always
+    {
+        echo "Ejecución finalizada."
+    }
+    
+    success
+    {
+        echo 'El pipeline se ejecuto de forma correcta'
+    }
+    failure
+    {
+        echo "El pipeline finalizo con errores."
+        mail to: "gustavo@gmail.com", subject: "Pipeline Fallo revisar ejecución - Tarea 9", body: "Buenos dias, el pipeline finalizo con errores, por favor, revise el codigo"
+    }
+}
+}

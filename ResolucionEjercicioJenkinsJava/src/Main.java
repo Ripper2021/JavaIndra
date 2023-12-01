@@ -92,6 +92,25 @@ public class Main
 									 "\n}";	
 		bw.write(formato_jenkinsfile);
 		System.out.println("Se genero el jenkinsfile");
+
+		/*
+		try {
+			final var bw = new BufferedWriter(new FileWriter("Jenkinsfile"));
+			bw.write("pipeline {");
+			bw.write("\nagent any");
+			bw.write("\nstages {");
+			bw.write("\nstage('Muestro informacion') {");
+			bw.write("\nsteps {");
+			bw.write("\necho 'La informacion de los empleados es:' ");
+			for (Empleado empleado:empleados)
+			{
+				bw.write("echo 'Empleado: " + empleado.getNombre() + "', \\"); 
+				bw.write("echo 'Posicion: " + empleado.getPosicion() + "', \\"); 
+				bw.write("echo 'Salario: " + empleado.getSalario() + "', \\"); 
+				//bw.write("echo 'Infraccion: " + empleado.calcularInfraccion() + "', \\"); 
+				//idem Posicion, salario, Infraccion...
+			}
+		*/
 		}
 		 catch (IOException e) {
 		// TODO Auto-generated catch block

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mi pagina web adicional.</title>
+<style>
+body
+{
+	background-color: #ECECEC;
+}
+
+.container
+{
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.button
+{
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #1F4E5D;
+	color: #FFFFFF;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+
+#content
+{
+	transition: opacity 0.5s ease-in-out;
+	opacity: 0;
+}
+
+.show
+{
+	opacity: 1;
+}
+
+@media (max-width: 600px)
+{
+	.container
+	{
+		max-width: 100%;
+		padding: 10px;
+	}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Bienvenido a mi pagina extra</h1>
+<form onsubmit= "return validarFormulario()">
+<label form="nombre">Nombre:</label>
+<input type="text" id="nombre" required>
+<label for="email" >Email:</label>
+<input type="email" id="email" required>
+<button type="submit">Enviar</button>
+</form>
+<p>Aca voy a poner mas contenido.</p>
+<ul>
+<li><a href= "#" id="alertLink" onclick= mostrarAlerta()>Mostrar Alerta </a></li>
+<li><a href = "#" id="toggleLink" onclick=toggleVisibility()>Mostrar/Ocultar boton </a></li>
+</ul>
+<button class = "button" id="myButton" onclick=mostrarMensaje()>Boton</button>
+<div id="content style="display:none;">
+<p>Este contenido se va a mostrar y se va a ocultar.</p>
+</div>
+</div>
+<script>
+function mostrarAlerta()
+{
+	alert("Esto es una alerta disparada")	
+}
+function toggleVisibility()
+{
+	var content = document.getElementById("content")
+	if(content.style.display == "none")
+		{
+		content.style.display = "block";
+		}
+	else
+		{
+			content.style.display = "none";
+		}
+}
+
+function mostrarMensaje()
+{
+	alert("Se hizo click en el boton")	
+}
+
+function refrescarPagina()
+{
+	location.reload();	
+}
+setInterval(refrescarPagina, 5000000) //5000 milisegundos = 5 segundos
+
+
+function validarFormulario()
+{
+	var nombre = document.getElementById("nombre").value;
+	var email = document.getElementById("email").value;
+	
+	
+	if(nombre === "" || email === "")
+		{
+			alert("Por favor completa los campos requeridios");
+			return false;
+		}
+	return true;
+}
+</script>
+</body>
+</html>

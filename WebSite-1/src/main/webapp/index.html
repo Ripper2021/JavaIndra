@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Libreria Mosdich.</title>
+<style>
+body
+{
+	font-family: 'Arial', sans-serif;
+	background-color: #F4F4F4;
+	color: #333;
+	margin: 0;
+	padding:0 ;
+}
+
+header
+{
+	background-color: #009688;
+	color: #FFF;
+	text-align: center;
+	padding: 10pc;
+}
+
+section
+{
+	max-width:800px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #FFF;
+	border-radius: 5px;
+	box-shadow:0 0 10px rgba(0, 0,0 ,0.1);
+}
+
+.button
+{
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #FF5722;
+	color: #FFF;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.important-text
+{
+	font-weight: bold;
+	color: #F44336;
+}
+
+.hidden
+{
+	display:none;
+}
+
+nav
+{
+	background-color: #333;
+	color: #FFF;
+	text-align:center;
+	margin-bottom:20px;
+}
+
+.menu-item
+{
+	display: inline-block;
+	padding: 10px 20px;
+	color: #FFF;
+	text-decoration: none;
+}
+.submenu
+{
+	display:none;
+}
+
+.submenu a
+{
+	display: block;
+	padding: 10px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.submenu a:hover
+{
+	background-color: #555;
+}
+
+.footer
+{
+	text-align:center;
+	padding:20px;
+	background-color: #333;
+	color: #FFF;
+}
+
+.social-icons
+{
+	font-size:24px;
+}
+.social-icons a
+{
+	color: #FFF;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>Libreria Mosdich</h1>
+</header>
+<nav>
+
+<a href="#" class="menu-item" onclick="toggleSubmenu ('submenu1')">ABOUT US</a>
+<div class="submenu" id="submenu1">
+<a href="#">Our Mission</a>
+<a href="#">Our Goals</a>
+</div>
+
+<a href="#" class="menu -item" onclick="toggleSubmenu('submenu2')">CONTACT US</a>
+<div class="submenu" id="submenu2">
+<a href="#">EMAIL</a>
+<a href="#">LINKEDIN</a>
+<a href="#">FACEBOOK</a>
+<a href="#">INSTAGRAM</a>
+</div>
+</nav>
+
+<section>
+<p>Bienvenido a la segunda sección de mi sitio web. Aqui encontraras cosas relevantes.</p>
+
+<div>
+ <a href="#" class="button" onclick="mostrarMensajeImportante()">Mostrar Mensaje Importante</a>
+      <a href="#" class="button" onclick="ocultarMensajeImportante()">Ocultar Mensaje Importante</a></div>
+
+<p id="mensajeImportante" class="hidden important-text">Este es un mensaje importante</p>>
+<button class="button" onclick="cambiarColorDeFondo()">Cambiamos el color del fondo</button>
+<div id="miDiv" style= "width: 200px; height: 200px; background-color: #2196F3; margin-top: 20px"></div>
+</section>
+
+<div class="footer">
+<div class="social-icons">
+
+<!-- <linkrel>"stylesheet" href="icono." /> -->
+
+
+
+<a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+<a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+<a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+<a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+
+<script>
+
+function mostrarMensajeImportante()
+{
+	document.getElementById("mensajeImportante").style.display= "block";
+}
+
+function ocultarMensajeImportante()
+{
+	document.getElementById("mensajeImportante").style.display="none";
+}
+
+function cambiarColorDeFondo()
+{
+	var miDiv = document.getElementById("miDiv");
+	var nuevoColor = getRandomColor();
+	miDiv.style.backgroundColor= nuevoColor;
+}
+
+function getRandomColor()
+{
+	var letters="0123456789ABCDEF";
+	var color = '#';
+	for (var i = 0; i<6; i++)
+		{
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+	return color;
+}
+
+
+function toggleSubmenu(submenuId)
+{
+	var submenu = document.getElementById(submenuId);
+	if(submenu.style.display ==="block")
+		{
+			submenu.style.display = "none";
+		}
+	else
+		{
+			submenu.style.display="block";
+		}
+}
+</script>
+</body>
+</html>

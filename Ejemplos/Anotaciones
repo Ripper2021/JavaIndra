@@ -1,0 +1,24 @@
+JUnit
+¿Qué es JUnit?
+Es un marco de trabajo (framework) de pruebas unitarias 
+para Java. Permite a los desarrolladores escribir y ejecutar
+pruebas AUTOMATICAS de manera sencilla y efectiva. Las pruebas
+unitarias son pruebas que se centran en verificar el correcto funcionamiento
+de una unidad de codigo, como un metodo o una clase, de manera aislada.
+
+
+¿Que utiliza JUNIt? Utiliza anotaciones de Java para marcar
+metodos que deben ejecutarse como pruebas o configuraciones de pruebas.
+Algunas de la anotaciones mas comunes son:
+@Test
+@Before
+@After
+@BeforeClass
+
+Metodos de Aserción: JUnit proporciona varios metodos de aserción
+que se utilizan dentro de los metodos de prueba para verificar si los resutados
+obtenidos son los esperados. 
+@assertEquals: Esperamos que sea igual
+@assertTrue: Esperamos que sea verdadero
+@assertFalse: Esperamos que sea falso. 
+
